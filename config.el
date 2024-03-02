@@ -42,10 +42,10 @@
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/notes_private/org/")
 (setq org-agenda-files
-      '("~/notes_private/org/tasks.org"
-        "~/notes_private/org/events.org"
-        "~/notes_private/org/birthdays.org"
-        "~/notes_private/org/reading-list.org"
+      '("~/notes_private/org/agenda/tasks.org"
+        "~/notes_private/org/agenda/events.org"
+        "~/notes_private/org/agenda/birthdays.org"
+        "~/notes_private/org/agenda/reading-list.org"
         ))
 (setq org-agenda-start-with-log-mode t)
 (setq org-log-done 'time)
