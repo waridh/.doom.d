@@ -51,6 +51,10 @@
 (setq org-log-done 'time)
 (setq-default org-download-image-dir "~/notes_private/org/assets/images")
 
+(setq +latex-viewers '(pdf-tools))
+(map! :map cdlatex-mode-map
+      :i "TAB" #'cdlatex-tab)
+
 ;; Whenever you reconfigure a package, make sure to wrap your config in an
 ;; `after!' block, otherwise Doom's defaults may override your settings. E.g.
 ;;
