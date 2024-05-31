@@ -1,0 +1,23 @@
+#+title: README
+* Quick Setup instructions
+** Prerequisites
+1. Make sure that you have a stable version of emacs install. Preferably a version that is higher than 29.3
+2. Have Git install, but it is likely that you do have it.
+3. Use Linux or WSL. Windows does not play nicely at all with Doom emacs, and you will have a better time using WSL.
+   1. This will give you GNU find as well.
+4. Install *ripgrep* through *cargo* -> means that you should also install rustup on your system
+** Installation
+#+begin_src bash
+git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
+~/.config/emacs/bin/doom install
+#+end_src
+
+Following this, add ~~/.config/emacs/bin~ to path.
+
+Now we can remove the default doom configuration and add the one from this repository with the following command.
+*** Linux
+#+begin_src bash
+# Need to remove the default doom configuration to make room for ours
+rm -rf ~/.config/doom
+git clone https://github.com/waridh/.doom.d.git ~/.config/doom
+#+end_src
