@@ -33,7 +33,7 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-old-hope)
-(setq doom-font (font-spec :family "Monoid Nerd Font" :size 13))
+(setq doom-font (font-spec :family "GoMono Nerd Font" :size 16))
 (set-frame-parameter (selected-frame) 'alpha '(95 . 95)) (add-to-list 'default-frame-alist '(alpha . (95 . 95)))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
@@ -42,16 +42,16 @@
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
-(setq org-directory "~/notes_private/org/")
+(setq org-directory "~/org/")
 (setq org-agenda-files
-      '("~/notes_private/org/agenda/tasks.org"
-        "~/notes_private/org/agenda/events.org"
-        "~/notes_private/org/agenda/birthdays.org"
-        "~/notes_private/org/agenda/reading-list.org"
+      '("~/org/todo.org"
+        "~/org/agenda/events.org"
+        "~/org/agenda/birthdays.org"
+        "~/org/agenda/reading-list.org"
         ))
 (setq org-agenda-start-with-log-mode t)
 (setq org-log-done 'time)
-(setq-default org-download-image-dir "~/notes_private/org/assets/images")
+(setq-default org-download-image-dir "~/org/assets/images")
 
 (setq +latex-viewers '(pdf-tools))
 (map! :map cdlatex-mode-map
