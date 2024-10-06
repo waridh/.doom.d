@@ -50,3 +50,4 @@
 ;; (unpin! t)
 
 (package! xenops)
+(package! catppuccin-theme)

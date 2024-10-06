@@ -32,8 +32,9 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-old-hope)
-(setq doom-font (font-spec :family "GoMono Nerd Font" :size 16))
+(setq doom-theme 'catppuccin)
+(setq catppuccin-flavor 'mocha)
+(setq doom-font (font-spec :family "Monoid Nerd Font" :size 16))
 (set-frame-parameter (selected-frame) 'alpha '(95 . 95)) (add-to-list 'default-frame-alist '(alpha . (95 . 95)))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
