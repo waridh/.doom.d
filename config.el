@@ -34,18 +34,20 @@
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'catppuccin)
 (setq catppuccin-flavor 'mocha)
-(setq doom-font (font-spec :family "Monoid Nerd Font" :size 16))
+(setq doom-font (font-spec :family "ZedMono Nerd Font Mono" :size 16))
 (set-frame-parameter (selected-frame) 'alpha '(95 . 95)) (add-to-list 'default-frame-alist '(alpha . (95 . 95)))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
-(setq display-line-numbers-type t)
+(setq display-line-numbers-type 'relative)
 
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
 (setq org-agenda-files
       '("~/org/todo.org"
+        "~/org/weekly.org"
+        "~/org/archive.org"
         "~/org/agenda/events.org"
         "~/org/agenda/birthdays.org"
         "~/org/agenda/reading-list.org"
