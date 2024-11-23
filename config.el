@@ -35,7 +35,9 @@
 (setq doom-theme 'catppuccin)
 (setq catppuccin-flavor 'mocha)
 (setq doom-font (font-spec :family "ZedMono Nerd Font Mono" :size 16))
-(set-frame-parameter (selected-frame) 'alpha '(95 . 95)) (add-to-list 'default-frame-alist '(alpha . (95 . 95)))
+
+;; Uncomment the following line to enable transparency
+;; (set-frame-parameter (selected-frame) 'alpha '(95 . 95)) (add-to-list 'default-frame-alist '(alpha . (95 . 95)))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
