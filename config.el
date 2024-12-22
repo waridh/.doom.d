@@ -32,9 +32,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'catppuccin)
-(setq catppuccin-flavor 'mocha)
-(setq doom-font (font-spec :family "ZedMono Nerd Font Mono" :size 16))
+(setq doom-theme 'doom-rose-pine-dawn)
+(setq doom-font (font-spec :family "VictorMono Nerd Font Mono" :size 16))
 
 ;; Uncomment the following line to enable transparency
 ;; (set-frame-parameter (selected-frame) 'alpha '(95 . 95)) (add-to-list 'default-frame-alist '(alpha . (95 . 95)))
@@ -52,8 +51,8 @@
         "~/org/archive.org"
         "~/org/agenda/events.org"
         "~/org/agenda/birthdays.org"
-        "~/org/agenda/reading-list.org"
-        ))
+        "~/org/agenda/reading-list.org"))
+
 (setq org-agenda-start-with-log-mode t)
 (setq org-log-done 'time)
 (setq-default org-download-image-dir "~/org/assets/images")
