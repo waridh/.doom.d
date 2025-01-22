@@ -33,10 +33,13 @@
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
 (setq doom-theme 'doom-rose-pine-dawn)
-(setq doom-font (font-spec :family "VictorMono Nerd Font Mono" :size 16))
+(setq doom-font (font-spec :family "ComicShannsMono Nerd Font Mono" :size 16))
+
+;; Replacing logo with image
+(setq fancy-splash-image (concat doom-private-dir "/images/emacs.svg"))
 
 ;; Uncomment the following line to enable transparency
-;; (set-frame-parameter (selected-frame) 'alpha '(95 . 95)) (add-to-list 'default-frame-alist '(alpha . (95 . 95)))
+(set-frame-parameter (selected-frame) 'alpha '(95 . 95)) (add-to-list 'default-frame-alist '(alpha . (95 . 95)))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
