@@ -35,6 +35,9 @@
 (setq doom-theme 'doom-rose-pine-dawn)
 (setq doom-font (font-spec :family "ComicShannsMono Nerd Font Mono" :size 16))
 
+;; Dashboard modification
+(remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
+(add-hook! '+doom-dashboard-functions :append (insert "\n" (+doom-dashboard--center +doom-dashboard--width "Powered by Emacs!")))
 ;; Replacing logo with image
 (setq fancy-splash-image (concat doom-private-dir "/images/emacs.svg"))
 
