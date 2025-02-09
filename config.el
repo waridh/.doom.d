@@ -37,7 +37,7 @@
 
 ;; Dashboard modification
 (remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
-(add-hook! '+doom-dashboard-functions :append (insert "\n" (+doom-dashboard--center +doom-dashboard--width "Powered by Emacs!")))
+(add-hook! '+doom-dashboard-functions :append (insert "\n" (+doom-dashboard--center +doom-dashboard--width "Best Editor in History!")))
 ;; Replacing logo with image
 (setq fancy-splash-image (concat doom-private-dir "/images/emacs.svg"))
 
