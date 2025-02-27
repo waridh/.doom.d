@@ -53,4 +53,4 @@
 (package! catppuccin-theme)
 ;; Until org-roam has updated to meet with the new emacsql module structure,
 ;; we need to pin the emacsql version
-(package! emacsql :pin "491105a01f58bf0b346cbc0254766c6800b229a2")
+;; (package! emacsql :pin "491105a01f58bf0b346cbc0254766c6800b229a2")

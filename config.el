@@ -42,7 +42,7 @@
 (setq fancy-splash-image (concat doom-private-dir "/images/emacs.svg"))
 
 ;; Uncomment the following line to enable transparency
-(set-frame-parameter (selected-frame) 'alpha '(95 . 95)) (add-to-list 'default-frame-alist '(alpha . (95 . 95)))
+;; (set-frame-parameter (selected-frame) 'alpha '(95 . 95)) (add-to-list 'default-frame-alist '(alpha . (95 . 95)))
 
 ;; This determines the style of line numbers in effect. If set to `nil', line
 ;; numbers are disabled. For relative line numbers, set this to `relative'.
@@ -51,6 +51,7 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
+;; TODO: Reorganize this
 (setq org-agenda-files
       '("~/org/todo.org"
         "~/org/weekly.org"
@@ -62,6 +63,10 @@
 (setq org-agenda-start-with-log-mode t)
 (setq org-log-done 'time)
 (setq-default org-download-image-dir "~/org/assets/images")
+
+;; Doing a longer pomodoro
+(setq org-pomodoro-length 50)
+(setq org-pomodoro-short-break-length 10)
 
 (setq +latex-viewers '(pdf-tools))
 (map! :map cdlatex-mode-map

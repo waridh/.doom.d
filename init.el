@@ -16,7 +16,7 @@
 
 (doom! :input
        ;;bidi              ; (tfel ot) thgir etirw uoy gnipleh
-       ;;chinese
+       ;; chinese
        ;;japanese
        ;;layout            ; auie,ctsrnm is the superior home row
 
@@ -53,7 +53,7 @@
        zen               ; distraction-free coding or writing
 
        :editor
-       (evil +everywhere); come to the dark side, we have cookies
+       ;; (evil +everywhere); come to the dark side, we have cookies
        file-templates    ; auto-snippets for empty files
        fold              ; (nigh) universal code folding
        (format +onsave +lsp)  ; automated prettiness
@@ -61,7 +61,7 @@
        ;;lispy             ; vim for lisp, for people who don't like vim
        ;;multiple-cursors  ; editing in many places at once
        ;;objed             ; text object editing for the innocent
-       parinfer          ; turn lisp into python, sort of
+       ;; parinfer          ; turn lisp into python, sort of. It's not great
        ;;rotate-text       ; cycle region at point between text candidates
        snippets          ; my elves. They type so I don't have to
        word-wrap         ; soft wrapping with language-aware indent
@@ -70,7 +70,7 @@
        (dired +dirvish +icons)             ; making dired pretty [functional]
        electric          ; smarter, keyword-based electric-indent
        ;;ibuffer         ; interactive buffer management
-       undo              ; persistent, smarter undo for your inevitable mistakes
+       (undo +tree)              ; persistent, smarter undo for your inevitable mistakes
        vc                ; version-control and Emacs, sitting in a tree
 
        :term
@@ -135,9 +135,9 @@
        ;;fsharp            ; ML stands for Microsoft's Language
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;gdscript          ; the language you waited for
-       ;; (go +lsp +tree-sitter)         ; the hipster dialect
+       (go +lsp +tree-sitter)         ; the hipster dialect
        ;;(graphql +lsp)    ; Give queries a REST
-       ;; (haskell +lsp)    ; a language that's lazier than I am
+       (haskell +lsp +tree-sitter)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
        json              ; At least it ain't XML
