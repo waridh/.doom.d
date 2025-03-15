@@ -19,5 +19,5 @@ Now we can remove the default doom configuration and add the one from this repos
 #+begin_src bash
 # Need to remove the default doom configuration to make room for ours
 rm -rf ~/.config/doom
-git clone https://github.com/waridh/.doom.d.git ~/.config/doom
+git clone git@github.com:waridh/.doom.d.git ~/.config/doom
 #+end_src
