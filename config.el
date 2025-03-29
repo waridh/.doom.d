@@ -32,8 +32,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-rose-pine-dawn)
-(setq doom-font (font-spec :family "ComicShannsMono Nerd Font Mono" :size 16))
+(setq doom-theme 'doom-sourcerer)
+(setq doom-font (font-spec :family "MonaspiceKr Nerd Font Mono" :size 16))
 
 ;; Dashboard modification
 (remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
