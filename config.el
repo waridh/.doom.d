@@ -32,8 +32,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-sourcerer)
-(setq doom-font (font-spec :family "MonaspiceKr Nerd Font Mono" :size 16))
+(setq doom-theme 'whiteboard)
+(setq doom-font (font-spec :family "IntoneMono Nerd Font Mono" :size 14))
 
 ;; Dashboard modification
 (remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
@@ -54,8 +54,7 @@
 ;; TODO: Reorganize this
 (setq org-agenda-files
       '("~/org/todo.org"
-        "~/org/weekly.org"
-        "~/org/archive.org"
+        "~/org/schedule.org"
         "~/org/agenda/events.org"
         "~/org/agenda/birthdays.org"
         "~/org/agenda/reading-list.org"))
