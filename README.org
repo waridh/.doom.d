@@ -20,4 +20,5 @@ Now we can remove the default doom configuration and add the one from this repos
 # Need to remove the default doom configuration to make room for ours
 rm -rf ~/.config/doom
 git clone git@github.com:waridh/.doom.d.git ~/.config/doom
+~/.config/emacs/bin/doom sync --rebuild --gc
 #+end_src
