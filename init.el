@@ -48,7 +48,7 @@
        unicode           ; extended unicode support for various languages
        (vc-gutter +pretty) ; vcs diff in the fringe
        vi-tilde-fringe   ; fringe tildes to mark beyond EOB
-       (window-select +numbers)     ; visually switch windows
+       (window-select +numbers +switch-window)     ; visually switch windows
        workspaces        ; tab emulation, persistence & separate workspaces
        zen               ; distraction-free coding or writing
 
@@ -80,7 +80,7 @@
        ;;vterm             ; the best terminal emulation in Emacs
 
        :checkers
-       (syntax +flymake +icons)              ; tasing you for every semicolon you forget
+       (syntax +icons)              ; tasing you for every semicolon you forget
        (spell +aspell +flyspell)   ; tasing you for misspelling mispelling
        grammar             ; tasing grammar mistake every you make
 
@@ -137,7 +137,7 @@
        ;;gdscript          ; the language you waited for
        (go +lsp +tree-sitter)         ; the hipster dialect
        ;;(graphql +lsp)    ; Give queries a REST
-       (haskell +lsp +tree-sitter)    ; a language that's lazier than I am
+       ;; (haskell +lsp +tree-sitter)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
        json              ; At least it ain't XML
