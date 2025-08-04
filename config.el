@@ -51,13 +51,7 @@
 ;; If you use `org' and don't want your org files in the default location below,
 ;; change `org-directory'. It must be set before org loads!
 (setq org-directory "~/org/")
-;; TODO: Reorganize this
-(setq org-agenda-files
-      '("~/org/todo.org"
-        "~/org/schedule.org"
-        "~/org/agenda/events.org"
-        "~/org/agenda/birthdays.org"
-        "~/org/agenda/reading-list.org"))
+
 
 (setq org-agenda-start-with-log-mode t)
 (setq org-log-done 'time)
@@ -66,6 +60,46 @@
 ;; Doing a longer pomodoro
 (setq org-pomodoro-length 50)
 (setq org-pomodoro-short-break-length 10)
+
+(defun my/org-roam-create-filter-by-tag (tag-name)
+  (lambda (node)
+    (member tag-name (org-roam-node-tags node))))
+
+(defun my/org-roam-list-notes-by-tag (tag-name)
+  (mapcar #'org-roam-node-file
+          (seq-filter (my/org-roam-create-filter-by-tag tag-name)
+                      (org-roam-node-list))))
+
+(defun my/org-agenda-refresh-list ()
+  "function that reloads the notes registered to agenda. Looks for tracktodo"
+  (interactive)
+  (setq org-agenda-files (append
+                          (my/org-roam-list-notes-by-tag "tracktodo")
+                          '("~/org/todo.org"
+                            "~/org/schedule.org"
+                            "~/org/agenda/events.org"
+                            "~/org/agenda/birthdays.org"
+                            "~/org/agenda/reading-list.org"))))
+
+(defun my/org-roam-copy-todo-to-today ()
+  "function that registers the hook to move done task to today"
+  (interactive)
+  (let ((org-refile-keep t) ;; Set this to nil to delete the original!
+        (org-roam-dailies-capture-templates
+         '(("t" "tasks" entry "%?"
+            :if-new (file+head+olp "%<%Y-%m-%d>.org" "#+title: %<%Y-%m-%d>\n" ("Tasks")))))
+        (org-after-refile-insert-hook #'save-buffer)
+        today-file
+        pos)
+    (save-window-excursion
+      (org-roam-dailies--capture (current-time) t)
+      (setq today-file (buffer-file-name))
+      (setq pos (point)))
+
+    ;; Only refile if the target file is different than the current file
+    (unless (equal (file-truename today-file)
+                   (file-truename (buffer-file-name)))
+      (org-refile nil nil (list "Tasks" today-file nil pos)))))
 
 (setq +latex-viewers '(pdf-tools))
 (map! :map cdlatex-mode-map
@@ -102,3 +136,16 @@
 ;;
 ;; You can also try 'gd' (or 'C-c c d') to jump to their definition and see how
 ;; they are implemented.
+
+(after! org-roam
+  (my/org-agenda-refresh-list)
+  (add-to-list 'org-after-todo-state-change-hook
+               (lambda ()
+                 (when (equal org-state "DONE")
+                   (my/org-roam-copy-todo-to-today))))
+  (setq org-startup-folded 'content
+        org-log-into-drawer t))
+(after! helm
+  (set-face-attribute 'helm-selection nil
+                      :background "purple"
+                      :foreground "black"))
