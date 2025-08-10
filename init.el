@@ -114,7 +114,7 @@
 
        :lang
        ;;agda              ; types of types of types of types...
-       ;;beancount         ; mind the GAAP
+       (beancount +lsp)         ; mind the GAAP
        (cc +lsp +tree-sitter)         ; C > C++ == 1
        (clojure +lsp +tree-sitter)           ; java with a lisp
        (common-lisp +lsp +tree-sitter)       ; if you've seen one lisp, you've seen them all
@@ -135,12 +135,12 @@
        ;; (fsharp +lsp)            ; ML stands for Microsoft's Language
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;gdscript          ; the language you waited for
-       (go +lsp +tree-sitter)         ; the hipster dialect
+       ;; (go +lsp +tree-sitter)         ; the hipster dialect
        ;;(graphql +lsp)    ; Give queries a REST
        ;; (haskell +lsp +tree-sitter)    ; a language that's lazier than I am
        ;;hy                ; readability of scheme w/ speed of python
        ;;idris             ; a language you can depend on
-       json              ; At least it ain't XML
+       (json +lsp +tree-sitter)              ; At least it ain't XML
        ;;(java +lsp)       ; the poster child for carpal tunnel syndrome
        ;;javascript        ; all(hope(abandon(ye(who(enter(here))))))
        ;;julia             ; a better, faster MATLAB
@@ -151,8 +151,8 @@
        ;;lua               ; one-based indices? one-based indices
        (markdown +grip)          ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
-       ;;nix               ; I hereby declare "nix geht mehr!"
-       (ocaml +lsp +tree-sitter)             ; an objective camel
+       (nix +lsp +tree-sitter)               ; I hereby declare "nix geht mehr!"
+       ;; (ocaml +lsp +tree-sitter)             ; an objective camel
        (org +noter +contacts +roam2 +dragndrop +journal +present +pretty +pomodoro)               ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        plantuml          ; diagrams for confusing people more
@@ -172,9 +172,9 @@
        ;;solidity          ; do you need a blockchain? No.
        ;;swift             ; who asked for emoji variables?
        ;;terra             ; Earth and Moon in alignment for performance.
-       ;;web               ; the tubes
+       (web +lsp +tree-sitter)               ; the tubes
        (yaml +tree-sitter +lsp)              ; JSON, but readable
-       ;; zig               ; C, but simpler
+       (zig +lsp +tree-sitter)               ; C, but simpler
 
        :email
        ;; (mu4e +org +gmail)
