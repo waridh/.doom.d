@@ -32,7 +32,7 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'doom-ir-black)
+(setq doom-theme 'doom-fairy-floss)
 ;; (setq doom-font (font-spec :family "IntoneMono Nerd Font Mono" :size 14))
 
 ;; Dashboard modification
@@ -147,5 +147,9 @@
         org-log-into-drawer t))
 (after! helm
   (set-face-attribute 'helm-selection nil
-                      :background "purple"
+                      :background "yellow"
                       :foreground "black"))
+(after! corfu
+  (setq +corfu-want-tab-prefer-expand-snippets t
+        +corfu-want-tab-prefer-navigating-snippets t
+        +corfu-want-tab-prefer-navigating-org-tables t))
