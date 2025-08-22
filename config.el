@@ -144,7 +144,7 @@
                  (when (equal org-state "DONE")
                    (my/org-roam-copy-todo-to-today))))
   (setq org-startup-folded 'content
-        org-log-into-drawer t))
+        org-log-into-drawer nil))
 (after! helm
   (set-face-attribute 'helm-selection nil
                       :background "yellow"
