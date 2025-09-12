@@ -32,8 +32,8 @@
 ;; There are two ways to load a theme. Both assume the theme is installed and
 ;; available. You can either set `doom-theme' or manually load a theme with the
 ;; `load-theme' function. This is the default:
-(setq doom-theme 'modus-vivendi)
-;; (setq doom-font (font-spec :family "IntoneMono Nerd Font Mono" :size 14))
+(setq doom-theme 'modus-operandi)
+(setq doom-font (font-spec :family "VictorMono Nerd Font Mono" :size 14))
 
 ;; Dashboard modification
 (remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
