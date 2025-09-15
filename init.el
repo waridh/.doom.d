@@ -117,7 +117,7 @@
        (beancount +lsp)         ; mind the GAAP
        (cc +lsp +tree-sitter)         ; C > C++ == 1
        (clojure +lsp +tree-sitter)           ; java with a lisp
-       (common-lisp +lsp +tree-sitter)       ; if you've seen one lisp, you've seen them all
+       common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
        ;;csharp            ; unity, .NET, and mono shenanigans
