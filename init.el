@@ -65,6 +65,7 @@
        ;;rotate-text       ; cycle region at point between text candidates
        snippets          ; my elves. They type so I don't have to
        word-wrap         ; soft wrapping with language-aware indent
+       (whitespace +guess +trim)
 
        :emacs
        (dired +dirvish +icons)             ; making dired pretty [functional]
