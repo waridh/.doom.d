@@ -132,7 +132,7 @@
        ;;factor
        ;;faust             ; dsp, but you get to keep your soul
        ;;fortran           ; in FORTRAN, GOD is REAL (unless declared INTEGER)
-       ;; (fsharp +lsp)            ; ML stands for Microsoft's Language
+       (fsharp +lsp)            ; ML stands for Microsoft's Language
        ;;fstar             ; (dependent) types and (monadic) effects and Z3
        ;;gdscript          ; the language you waited for
        ;; (go +lsp +tree-sitter)         ; the hipster dialect
@@ -153,7 +153,7 @@
        (markdown +grip)          ; writing docs for people to ignore
        ;;nim               ; python + lisp at the speed of c
        ;; (nix +lsp +tree-sitter)               ; I hereby declare "nix geht mehr!"
-       ;; (ocaml +lsp +tree-sitter)             ; an objective camel
+       (ocaml +lsp)             ; an objective camel
        (org +noter +contacts +roam2 +dragndrop +journal +present +pretty +pomodoro)               ; organize your plain life in plain text
        ;;php               ; perl's insecure younger brother
        plantuml          ; diagrams for confusing people more
