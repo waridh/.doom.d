@@ -12,7 +12,7 @@ git clone --depth 1 https://github.com/doomemacs/doomemacs ~/.config/emacs
 ~/.config/emacs/bin/doom install
 #+end_src
 
-Following this, add ~ ~/.config/emacs/bin~ to path.
+Following this, add ~$HOME/.config/emacs/bin~ to path.
 
 Now we can remove the default doom configuration and add the one from this repository with the following command.
 *** Linux
