@@ -50,7 +50,8 @@
 ;; (unpin! t)
 
 (package! xenops)
-(package! catppuccin-theme)
+(package! verilog-mode)
+
 ;; Until org-roam has updated to meet with the new emacsql module structure,
 ;; we need to pin the emacsql version
 ;; (package! emacsql :pin "491105a01f58bf0b346cbc0254766c6800b229a2")
