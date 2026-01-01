@@ -1,25 +1,67 @@
+#+title: Config
+
+* Table of Content :toc:
+- [[#configel][config.el]]
+  - [[#name][Name]]
+  - [[#ricing][Ricing]]
+  - [[#org-mode][Org Mode]]
+  - [[#latex][Latex]]
+  - [[#corfu][Corfu]]
+
+* config.el
+:PROPERTIES:
+:header-args: :tangle config.el
+:END:
+
+
+#+begin_src emacs-lisp
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
-
+#+end_src
+** Name
+#+begin_src elisp
 (setq user-full-name "Bach W")
-
+#+end_src
+** Ricing
+*** Theme
+I like light theme
+#+begin_src elisp
 (setq doom-theme 'doom-flatwhite)
+#+end_src
+*** Font
+Currently, we like to use IBM Plex Mono, but we would like this configuration to only load that theme if it is present on the system.
 
+#+begin_src elisp
 (when (doom-font-exists-p "BlexMono Nerd Font Mono")
   (setq doom-font (font-spec :family "BlexMono Nerd Font Mono" :size 14)))
 (when (doom-font-exists-p "IBM Plex Sans")
   (setq doom-variable-pitch-font (font-spec :family "IBM Plex Sans" :size 14)))
-
+#+end_src
+*** Dashboard
+#+begin_src elisp
 (remove-hook '+doom-dashboard-functions #'doom-dashboard-widget-shortmenu)
 (add-hook! '+doom-dashboard-functions :append (insert "\n" (+doom-dashboard--center +doom-dashboard--width "Best Editor in History!")))
 ;; Replacing logo with image
 (setq fancy-splash-image (concat doom-private-dir "/images/emacs.svg"))
+#+end_src
 
+*** Line Numbers
+
+#+begin_src elisp
 (setq display-line-numbers-type 'relative)
+#+end_src
 
+** Org Mode
+*** Basic
+Firstly, we have to setup the org-directory to match with our system convention.
+#+begin_src elisp
 (setq org-directory "~/org/")
+#+end_src
 
+#+begin_src elisp
 (setq-default org-download-image-dir "~/org/assets/images")
-
+#+end_src
+*** Roam
+#+begin_src elisp
 (defun my/org-roam-create-filter-by-tag (tag-name)
   (lambda (node)
     (member tag-name (org-roam-node-tags node))))
@@ -59,7 +101,9 @@
     (unless (equal (file-truename today-file)
                    (file-truename (buffer-file-name)))
       (org-refile nil nil (list "Tasks" today-file nil pos)))))
+#+end_src
 
+#+begin_src elisp
 (after! org-roam
   (my/org-agenda-refresh-list)
   (add-to-list 'org-after-todo-state-change-hook
@@ -68,17 +112,30 @@
                    (my/org-roam-copy-todo-to-today))))
   (setq org-startup-folded 'content
         org-log-into-drawer nil))
+#+end_src
 
+
+*** Agenda
+#+begin_src elisp
 (setq org-agenda-start-with-log-mode t)
 (setq org-log-done 'time)
-
+#+end_src
+*** Pomodoro
+Here, we could determine the timing of Pomodoro using our system.
+#+begin_src elisp
 (setq org-pomodoro-length 50)
 (setq org-pomodoro-short-break-length 10)
-
+#+end_src
+** Latex
+#+caption: This snippet is used to change the priority of tab completion when in LaTeX mode.
+#+begin_src elisp
 (map! :map cdlatex-mode-map
       :i "TAB" #'cdlatex-tab)
-
+#+end_src
+** Corfu
+#+begin_src elisp
 (after! corfu
   (setq +corfu-want-tab-prefer-expand-snippets t
         +corfu-want-tab-prefer-navigating-snippets t
         +corfu-want-tab-prefer-navigating-org-tables t))
+#+end_src
