@@ -60,6 +60,13 @@
                    (file-truename (buffer-file-name)))
       (org-refile nil nil (list "Tasks" today-file nil pos)))))
 
+(defun my/org-roam-load-templates ()
+  (add-to-list 'org-roam-capture-templates
+               '("e" "encrypted" plain "%?"
+                 :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org.gpg"
+                                    "#+title: ${title}\n")
+                 :unnarrowed t)))
+
 (after! org-roam
   (my/org-agenda-refresh-list)
   (add-to-list 'org-after-todo-state-change-hook
@@ -67,7 +74,8 @@
                  (when (equal org-state "DONE")
                    (my/org-roam-copy-todo-to-today))))
   (setq org-startup-folded 'content
-        org-log-into-drawer nil))
+        org-log-into-drawer nil)
+  (my/org-roam-load-templates))
 
 (setq org-agenda-start-with-log-mode t)
 (setq org-log-done 'time)

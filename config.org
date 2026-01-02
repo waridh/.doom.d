@@ -104,6 +104,15 @@ Firstly, we have to setup the org-directory to match with our system convention.
 #+end_src
 
 #+begin_src elisp
+(defun my/org-roam-load-templates ()
+  (add-to-list 'org-roam-capture-templates
+               '("e" "encrypted" plain "%?"
+                 :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org.gpg"
+                                    "#+title: ${title}\n")
+                 :unnarrowed t)))
+#+end_src
+
+#+begin_src elisp
 (after! org-roam
   (my/org-agenda-refresh-list)
   (add-to-list 'org-after-todo-state-change-hook
@@ -111,7 +120,8 @@ Firstly, we have to setup the org-directory to match with our system convention.
                  (when (equal org-state "DONE")
                    (my/org-roam-copy-todo-to-today))))
   (setq org-startup-folded 'content
-        org-log-into-drawer nil))
+        org-log-into-drawer nil)
+  (my/org-roam-load-templates))
 #+end_src
 
 
