@@ -20,6 +20,13 @@
 
 (setq-default org-download-image-dir "~/org/assets/images")
 
+(defun my/org-roam-load-templates ()
+  (add-to-list 'org-roam-capture-templates
+               '("e" "encrypted" plain "%?"
+                 :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org.gpg"
+                                    "#+title: ${title}\n")
+                 :unnarrowed t)))
+
 (defun my/org-roam-create-filter-by-tag (tag-name)
   (lambda (node)
     (member tag-name (org-roam-node-tags node))))
@@ -59,13 +66,6 @@
     (unless (equal (file-truename today-file)
                    (file-truename (buffer-file-name)))
       (org-refile nil nil (list "Tasks" today-file nil pos)))))
-
-(defun my/org-roam-load-templates ()
-  (add-to-list 'org-roam-capture-templates
-               '("e" "encrypted" plain "%?"
-                 :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org.gpg"
-                                    "#+title: ${title}\n")
-                 :unnarrowed t)))
 
 (after! org-roam
   (my/org-agenda-refresh-list)

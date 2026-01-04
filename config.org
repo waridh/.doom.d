@@ -12,7 +12,7 @@
 :PROPERTIES:
 :header-args: :tangle config.el
 :END:
-
+This section contains the configuration for ~doom emacs~ once the initial packages and modules have been loaded.
 
 #+begin_src emacs-lisp
 ;;; $DOOMDIR/config.el -*- lexical-binding: t; -*-
@@ -61,6 +61,26 @@ Firstly, we have to setup the org-directory to match with our system convention.
 (setq-default org-download-image-dir "~/org/assets/images")
 #+end_src
 *** Roam
+**** Additional Templates
+
+#+caption: Description of the different templates.
+| Name       | Hot Key | Description                                       |
+|------------+---------+---------------------------------------------------|
+| Encryption | e       | Used to generate encrypted ~org-roam~ entries.      |
+|            |         | This is required for notes that cannot be seen by |
+|            |         | anyone else.                                      |
+|------------+---------+---------------------------------------------------|
+#+begin_src elisp
+(defun my/org-roam-load-templates ()
+  (add-to-list 'org-roam-capture-templates
+               '("e" "encrypted" plain "%?"
+                 :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org.gpg"
+                                    "#+title: ${title}\n")
+                 :unnarrowed t)))
+#+end_src
+
+**** Agenda Synchronization
+The following configuration allows for notes in ~org-roam~ to be used as a task reference page.
 #+begin_src elisp
 (defun my/org-roam-create-filter-by-tag (tag-name)
   (lambda (node)
@@ -102,16 +122,8 @@ Firstly, we have to setup the org-directory to match with our system convention.
                    (file-truename (buffer-file-name)))
       (org-refile nil nil (list "Tasks" today-file nil pos)))))
 #+end_src
-
-#+begin_src elisp
-(defun my/org-roam-load-templates ()
-  (add-to-list 'org-roam-capture-templates
-               '("e" "encrypted" plain "%?"
-                 :target (file+head "%<%Y%m%d%H%M%S>-${slug}.org.gpg"
-                                    "#+title: ${title}\n")
-                 :unnarrowed t)))
-#+end_src
-
+**** Hook registration
+In this section, the relevant hooks for ~org-roam~ are registers so that it would load after the package has been loaded by ~doom emacs~.
 #+begin_src elisp
 (after! org-roam
   (my/org-agenda-refresh-list)
@@ -123,7 +135,6 @@ Firstly, we have to setup the org-directory to match with our system convention.
         org-log-into-drawer nil)
   (my/org-roam-load-templates))
 #+end_src
-
 
 *** Agenda
 #+begin_src elisp
